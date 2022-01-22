@@ -3,96 +3,18 @@
   <head>
     <meta charset="utf-8"/>
     <title>Rock Paper Scissors</title>
+    <script defer src="script.js"></script>
   </head>
 
   <body>
-      <script>
-          "use strict";
-          const choices = ["rock", "paper", "scissors"]
+    <button id="rock">Rock</button>
+    <button id="paper">Paper</button>
+    <button id="scissors">Scissors</button>
 
-          function computerPlay () {
-            return choices[Math.floor(Math.random() * choices.length)];
-          }
+    <div id="results"></div>
+    <div id="score"></div>
+    <div id="tournamentResults"></div>
 
-          //console.log(computerPlay());
-
-          // prompt the user to pick rock, paper, or scissors, hold taht answer in the variable "prompt"
-          // if prompt does not equal one of those, alert them to choose one
-          function playerPlay () {
-            let playerSelection = prompt("Choose rock, paper, or scissors.");
-            playerSelection = playerSelection.toLowerCase();
-            if (!(playerSelection.toLowerCase() === "rock" || playerSelection.toLowerCase() === "paper" || playerSelection.toLowerCase() === "scissors")) {
-              alert ("You must pick either 'rock' 'paper' or 'scissors' ");
-              return playerPlay();
-            } else return playerSelection;  
-          }
-
-
-          function playRound (playerSelection, computerSelection) {
-            if (playerSelection === computerSelection) {
-              return "Tie. Draw again.";
-            } else if (playerSelection === "rock" && computerSelection === "paper") {
-              return "Paper covers Rock. Computer wins.";
-            } else if (playerSelection === "paper" && computerSelection === "scissors") {
-              return "Scissors cuts paper. Computer wins.";
-            } else if (playerSelection === "scissors" && computerSelection === "rock") {
-              return "Rock smashes scissors. Computer wins.";
-            } else if (playerSelection === "rock" && computerSelection === "scissors") {
-              return "Rock smashes scissors. You win!";
-            } else if (playerSelection === "scissors" && computerSelection === "paper") {
-              return "Scissors cuts paper. You win!";
-            } else {
-              return "Paper covers rock. You win!";
-            }
-          }
-          
-          // make a function called game
-          // play up to five times by setting a counter that counts each game played
-          // for each game played, increment counter by 1, stop at 5 games
-          // print the results of each match
-          // determine the winner of the entire game by measuruing who won the most games out of 5
-          // print either that the player won the tournament or the computer won
-          //function game() {
-            //for (let counter = 0; counter <= 5, counter += 1;) {
-              //playRound(playerPlay(),computerPlay());
-              //console.log(playRound(playerPlay(), computerPlay()));
-            //}
-          //}
-          function game() {
-            let wincount = 0;
-            let losecount = 0;
-            for (let counter = 0; counter < 5; counter += 1) {
-              let playRoundResult = playRound(playerPlay(),computerPlay());
-              console.log(playRoundResult);
-              if (playRoundResult.includes("You win!")) {
-                wincount += 1; 
-              } else if (playRoundResult !== "Tie. Draw again.") {
-                losecount += 1;
-              }
-            }
-            console.log(wincount, losecount);
-            if (wincount > losecount) {
-              console.log("You have won the tournament");
-            } else if (wincount === losecount) {
-              console.log("Tournament is a tie.");
-            } else {
-              console.log("You have lost the tournament.");
-            }
-          }
-
-          //all rounds result takes all 5 rounds
-          //if there are 3 you wins -> champion
-          // if 3 you lose -> lost
-          // 
-
-          
-        
-
-              
-              
-
-
-      </script>
 
 
   </body>
