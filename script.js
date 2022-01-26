@@ -43,23 +43,94 @@ function playRound (playerSelection, computerSelection) {
   }
 }
 
+let wincount = 0;
+let losecount = 0;
 
 function game(e) {
-  let wincount = 0;
-  let losecount = 0;
+  let yourScore = document.getElementById('yourScore');
+  let computerScore = document.getElementById('computerScore');
   let playerSelection = e.target.id
   let computerSelection = computerPlay();
   let playRoundResult = playRound(playerSelection,computerSelection);
   let results = document.getElementById('results');
-  results.textContent += playRoundResult;
   if (playRoundResult.includes("You win!")) {
     wincount += 1; 
+    yourScore.textContent = wincount;
   } else if (playRoundResult !== "Tie. Draw again.") {
     losecount += 1;
-  }
-
-  let score = document.getElementById('score');
+    computerScore.textContent = losecount;
+  } 
+  results.textContent = playRoundResult;
   displayScore(wincount, losecount);
+
+  //let finalResults = document.createElement("p");
+  //finalResults.textContent = "Tournament Results:";
+
+  if (wincount === 5) {
+    document.body.appendChild(tournamentResults);
+    tournamentResults.appendChild(winner);
+    muteButtons();
+    document.body.appendChild(tryAgain);
+
+  } else if (losecount === 5) {
+    document.body.appendChild(tournamentResults);
+    tournamentResults.appendChild(loser);
+    muteButtons();
+    document.body.appendChild(tryAgain);
+
+    }
+
+  tryAgain.addEventListener('click', reset);
+}
+
+function muteButtons() {
+  rock.removeEventListener('click', game);
+  rock.classList.add('disabled');
+  paper.removeEventListener('click', game);
+  paper.classList.add('disabled');
+  scissors.removeEventListener('click', game);
+  scissors.classList.add('disabled');
+
+}
+
+let tryAgain = document.createElement('button');
+tryAgain.classList.add('tryAgain');
+tryAgain.innerHTML = "Try Again";
+
+let tournamentResults = document.createElement('div');
+tournamentResults.classList.add("tournament-results");
+tournamentResults.innerHTML = "Tournament Results:"
+
+let winner = document.createTextNode("  You have won the match");
+let loser = document.createTextNode("  You have lost the match");
+
+
+function reset() {
+  document.body.removeChild(tryAgain);
+  document.body.removeChild(tournamentResults);
+  tournamentResults.removeChild(tournamentResults.childNodes[1]); // d
+  results.textContent = "";
+  wincount = 0;
+  losecount = 0;
+  yourScore.textContent = wincount;
+  computerScore.textContent = losecount;
+  score.textContent = `${wincount}, ${losecount}`;
+  rock.addEventListener('click', game);
+  rock.classList.remove('disabled');
+  paper.addEventListener('click', game);
+  paper.classList.remove('disabled');
+  scissors.addEventListener('click', game);
+  scissors.classList.remove('disabled');
+
+}
+
+let score = document.getElementById('score');
+function displayScore(wincount, losecount) {
+  score.textContent = `${wincount}, ${losecount}`;
+}
+//displayScore(wincount, losecount);
+
+function displayTournScore(wincount, losecount) {
   if (wincount > losecount) {
     console.log("You have won the tournament");
   } else if (wincount === losecount) {
@@ -69,9 +140,9 @@ function game(e) {
   }
 }
 
-function displayScore(wincount, losecount) {
-  score.textContent = `${wincount}, ${losecount}`;
-}
+
+
+
 
 //all rounds result takes all 5 rounds
 //if there are 3 you wins -> champion

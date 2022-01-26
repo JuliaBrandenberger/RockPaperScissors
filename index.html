@@ -4,16 +4,40 @@
     <meta charset="utf-8"/>
     <title>Rock Paper Scissors</title>
     <script defer src="script.js"></script>
+    <link rel="stylesheet" href="style.css">
   </head>
 
   <body>
-    <button id="rock">Rock</button>
-    <button id="paper">Paper</button>
-    <button id="scissors">Scissors</button>
+    <h1>Thank you for playing rock paper scissors with a computer</h1>
+    <div class="choices">
+      <div id="rock-block" class="img-block">
+        <img src="rock.png">
+        <button id="rock" class="play-buttons">Rock</button>
+      </div>
+      <div id="paper-block" class="img-block">
+        <img src="paper.jpg">
+        <button id="paper" class="play-buttons">Paper</button>
+      </div>
+      <div id="scissors-block" class="img-block">
+        <img src="scissors.png">
+        <button id="scissors" class="play-buttons">Scissors</button>
+      </div>
+    </div>
 
     <div id="results"></div>
+    <p class="scores">Your Score:</p>
+    <div id="yourScore">
+      <p>0</p>
+    </div>
+    <p class="scores">Computer Score:</p>
+    <div id="computerScore">
+      <p>0</p>
+    </div>
+    <p>Tally:</p>
     <div id="score"></div>
     <div id="tournamentResults"></div>
+
+    
 
 
 

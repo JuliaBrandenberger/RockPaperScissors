@@ -1,0 +1,84 @@
+#results {
+  font-size: 30px;
+  color: red;
+  margin: 20px;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.play-buttons {
+  background-color: #04AA6D;
+  border: none;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  border-radius: 8px;
+  border: 2px solid #04AA6D;
+}
+
+.tryAgain {
+  background-color: #b926d6;
+  border: none;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  border-radius: 8px;
+  border: 2px solid #b926d6;
+}
+
+.tryAgain:hover {
+  background-color: rgb(252, 252, 252);
+  border: 2px solid #b926d6;
+  color:rgb(131, 8, 131)
+}
+
+.choices {
+  display: flex;
+  flex-direction: row;
+  max-width: 100vw;
+}
+
+.choices .img-block {
+  flex-shrink: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  margin: 20px;
+}
+
+.choices img {
+  width: 100%; /*100% refers to parent element, saying set me to width of my parent element*/
+}
+
+.choices button:hover {
+  background-color: tomato;
+  border: 2px solid green;
+  
+  
+}
+
+button {
+  cursor: pointer;
+}
+
+.disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.tournament-results {
+  font-size: 25px;
+  color: red;
+  margin: 20px;
+}
