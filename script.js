@@ -114,7 +114,7 @@ function reset() {
   losecount = 0;
   yourScore.textContent = wincount;
   computerScore.textContent = losecount;
-  score.textContent = `${wincount}, ${losecount}`;
+  tally.textContent = `${wincount}, ${losecount}`;
   rock.addEventListener('click', game);
   rock.classList.remove('disabled');
   paper.addEventListener('click', game);
@@ -124,9 +124,9 @@ function reset() {
 
 }
 
-let score = document.getElementById('score');
+let tally = document.getElementById('tally');
 function displayScore(wincount, losecount) {
-  score.textContent = `${wincount}, ${losecount}`;
+  tally.textContent = `${wincount}, ${losecount}`;
 }
 //displayScore(wincount, losecount);
 
